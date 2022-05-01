@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewData["Title"] = "Tx Data";
+}
+<div class="bg-dark" style="height: 72px;"></div>
+<section class="page-section" id="about">
+<div class="container">
+<h1>Tx Data</h1>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead class="bg-dark text-white">
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    City
+                </th>
+                <th>
+                    State
+                </th>
+                <th>
+                    Type
+                </th>
+                <th>
+                    Industry
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.business_name</td>
+                    <td>@item.address_city</td>
+                    <td>@item.address_state</td>
+                    <td>@item.detail_2</td>
+                    <td>@item.industry</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<div class="text-center">
+    <p>
+        For more details and information to all states and statistics please visit the below link
+    </p>
+
+    <a href="https://data.cityofnewyork.us/Business/Legally-Operating-Businesses/w7w3-xahh"
+       >
+        click here for more info
+    </a>
+</div>
+
+</div>
+</section>

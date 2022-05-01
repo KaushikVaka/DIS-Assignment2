@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewData["Title"] = "Chart";
+}
+
+<div class="bg-dark" style="height: 72px;"></div>
+
+
+<section class="page-section" id="services">
+    <div class="container">
+        <h1>Chart</h1>
+        
+        <div class="row">
+            <div class="col-12">
+                <div id="main" style="min-width: 100%; min-height: 400px"></div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+    @section Scripts
+{
+        <script language="javascript" type="text/javascript" src="/echarts.js"></script>
+
+
+        <script>
+        var datajs = '@Html.Raw(ViewBag.data)';
+        var data = JSON.parse(datajs);
+
+        var datajs2 = '@Html.Raw(ViewBag.series)';
+        var chartdata = JSON.parse(datajs2);
+
+
+        var chart = document.getElementById('main');
+        var barChart = echarts.init(chart);
+
+        var option = {
+            legend: {
+                orient: 'vertical',
+                right: 10,
+                top: 'center'
+            },
+            xAxis: {
+                data: data,
+                axisLine: {
+                    lineStyle: {
+                        color: '#ccc'
+                    }
+                },
+                axisLabel: {
+                    fontSize: 10,
+                    color: '#666'
+                }
+            },
+            yAxis: {
+                splitLine: {
+                    lineStyle: {
+                        color: '#ddd'
+                    }
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#ccc'
+                    }
+                },
+                axisLabel: {
+                    fontSize: 10,
+                    color: '#666'
+                }
+            },
+            series: chartdata
+        };
+
+
+        barChart.setOption(option);
+
+        $(window).on('resize', function(){
+            if (barChart != null && barChart != undefined){
+                barChart.resize();
+            }
+        });
+
+        </script>
+    }

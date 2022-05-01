@@ -1,0 +1,79 @@
+﻿@model IEnumerable<CommerceWebApplication.Models.Operator>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="bg-dark" style="height: 72px;"></div>
+<section class="page-section" id="about">
+    <div class="container">
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="bg-dark text-white">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Desc)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LicenseId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Created)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Expired)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LicenseType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.City)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Desc)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LicenseId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Created)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Expired)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LicenseType.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.City.Id)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                <form asp-action="Delete" class="d-inline">
+                                    <input type="hidden" value="@item.Id" name="id" />
+                                    <input type="submit" value="Delete" class="btn btn-link" />
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </section>
+

@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/CommerceWebApplication/.vs/CommerceWebApplication
+/CommerceWebApplication/CommerceWebApplication/bin/Debug/net5.0
+/CommerceWebApplication/CommerceWebApplication/obj/Debug/net5.0
+/CommerceWebApplication/CommerceWebApplication/obj

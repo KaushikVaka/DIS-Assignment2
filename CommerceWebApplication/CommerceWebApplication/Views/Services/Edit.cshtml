@@ -1,0 +1,100 @@
+﻿@model CommerceWebApplication.Models.Operator
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="bg-dark" style="height: 72px;"></div>
+<section class="page-section" id="about">
+    <div class="container">
+        <h1>Edit Service [@Model.Name]</h1>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Desc" class="control-label"></label>
+                        <input asp-for="Desc" class="form-control" />
+                        <span asp-validation-for="Desc" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LicenseId" class="control-label"></label>
+                        <input asp-for="LicenseId" class="form-control" />
+                        <span asp-validation-for="LicenseId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Created" class="control-label"></label>
+                        <input asp-for="Created" class="form-control" />
+                        <span asp-validation-for="Created" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Expired" class="control-label"></label>
+                        <input asp-for="Expired" class="form-control" />
+                        <span asp-validation-for="Expired" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LicenseTypeId" class="control-label"></label>
+                        <select asp-for="LicenseTypeId" class="form-control" asp-items="ViewBag.LicenseTypeId"></select>
+                        <span asp-validation-for="LicenseTypeId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"> State</label>
+                        <select id="state" name="state" class="form-control" asp-items="ViewBag.StateId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CityId" class="control-label"></label>
+                        <select asp-for="CityId" class="form-control" asp-items="ViewBag.CityId"></select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+
+
+
+
+    </div>
+</section>
+
+
+
+@section Scripts {
+    <script language="javascript" type="text/javascript" src="/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $('#state').change(function () {
+            var selectedCountry = $(this).val();
+            var regionsSelect = $('#CityId');
+            regionsSelect.empty();
+            if (selectedCountry != null && selectedCountry != '') {
+                $.getJSON('@Url.Action("GetCites")', { id: selectedCountry }, function (regions) {
+                    if (regions != null && !jQuery.isEmptyObject(regions))
+                    {
+                        regionsSelect.append($('<option/>', {
+                            value: null,
+                            text: ""
+                        }));
+                        $.each(regions, function (index, region) {
+                            regionsSelect.append($('<option/>', {
+                                value: region.id,
+                                text: region.cityName
+                            }));
+                        });
+                    };
+                });
+            }
+        });
+    </script>
+}

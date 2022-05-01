@@ -1,0 +1,126 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-subheading">Welcome To Our website</div>
+        <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+        <a class="btn btn-primary btn-xl text-uppercase" href="@Url.Action("Chart","Api")">Charts here</a>
+    </div>
+</header>
+
+
+<div class="col-lg-8 mx-auto text-center mt-5">
+    <p class="large text-muted">
+        <h3>Legally Operating Businesses In USA </h3>
+        This data set features businesses/individuals holding a DCA license so that they may legally operate in New York City. Note: Sightseeing guides and temporary street fair vendors are not included in this data set.
+    </p>
+</div>
+
+
+
+
+<!-- Services-->
+<section class="page-section" id="services">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Services</h2>
+            <h3 class="section-subheading text-muted">Top Legal Countries.</h3>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <a href="@Url.Action("DataNY","Api")">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-flag fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+                <h4 class="my-3">
+                    @Html.ActionLink("New York", "DataNY", "Api", null, new { @class = "text-dark" })
+                </h4>
+                <p class="text-muted">
+                    top 10 Legally Operating Businesses in New York
+                </p>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action("DataNJ","Api")">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-flag-usa fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+                <h4 class="my-3">
+                    @Html.ActionLink("New Jersey", "DataNJ", "Api", null, new { @class = "text-dark" })
+                </h4>
+                <p class="text-muted">
+                    top 10 Legally Operating Businesses in New Jersey
+                </p>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action("DataPA","Api")">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-flag-checkered fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+                <h4 class="my-3">
+                    @Html.ActionLink("Pennsylvania", "DataPA", "Api", null, new { @class = "text-dark" })
+                </h4>
+                <p class="text-muted">
+                    top 10 Legally Operating Businesses in Pennsylvania
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Team-->
+<section class="page-section bg-light" id="team">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Our Team</h2>
+            <h3 class="section-subheading text-muted">
+                team members with all contact information 
+            </h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="images/u1.jpeg" alt="..." />
+                    <h4>Prahalada Reddy</h4>
+                    <p class="text-muted">
+                        Prahalada solely worked on designing the pages. He sketched the data model and used his knowledge for smooth implementation of the website
+
+
+                    </p>
+                    <a class="btn btn-dark btn-social mx-2" href="#" aria-label="Parveen Anand Facebook Profile"><i class="fa-brands fa-github"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/prahalada-reddy-dommata-98ba7b111/" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="images/u2.jpeg" alt="..." />
+                    <h4>Kaushik Vaka</h4>
+                    <p class="text-muted">Kaushik is the main person behind the idea. He's good with coding and leverages it to solve real time problems. He bootstrapped the site to be appealing and idea</p>
+                    <a class="btn btn-dark btn-social mx-2" href="https://github.com/KaushikVaka" ><i class="fa-brands fa-github"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/kaushik-vaka-258a25121/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="images/u3.jpeg" alt="..." />
+                    <h4>Lahari</h4>
+                    <p class="text-muted">
+                        Lahari worked on the backend part of the website. She worked on hosting the website in Azure
+                    </p>
+                    <a class="btn btn-dark btn-social mx-2" href="#" ><i class="fa-brands fa-github"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#" ><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
